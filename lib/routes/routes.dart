@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:signalini/screens/home/home_page.dart';
 import 'package:signalini/screens/login/login_page.dart';
 import 'package:signalini/screens/signale/signale_page.dart';
+import 'package:signalini/screens/userinfo/userinfo_page.dart';
 
 class Router {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -12,6 +13,8 @@ class Router {
         return MaterialPageRoute(builder: (_) => LoginPage());
       case SignalePage.id:
         return MaterialPageRoute(builder: (_) => SignalePage());
+      case UserInfoPage.id:
+        return MaterialPageRoute(builder: (_) => UserInfoPage());
       default:
         return MaterialPageRoute(builder: (_) => HomePage());
     }

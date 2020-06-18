@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:signalini/screens/userinfo/userinfo_page.dart';
 import 'package:signalini/utils/constants.dart';
-import 'package:signalini/screens/home/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   static const String id = '/login';
@@ -107,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
               //login button
               InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, HomePage.id);
+                  Navigator.pushNamed(context, UserInfoPage.id);
                 },
                 child: Container(
                   margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
@@ -139,7 +139,7 @@ class _LoginPageState extends State<LoginPage> {
               //Sign in with Google
               InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, HomePage.id);
+                  Navigator.pushNamed(context, UserInfoPage.id);
                 },
                 child: Container(
                   margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
