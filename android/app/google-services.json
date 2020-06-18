@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "461705959329",
+    "firebase_url": "https://cprj-8e13d.firebaseio.com",
+    "project_id": "cprj-8e13d",
+    "storage_bucket": "cprj-8e13d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461705959329:android:0572ebd7571fd857cb1de0",
+        "android_client_info": {
+          "package_name": "com.cprj.signalini"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "461705959329-spd38283kgkdanrmjecntrau2qgdb83a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cprj.signalini",
+            "certificate_hash": "ebbc7e969cfd5fd891ebf0ee6df08b6d20ff1b87"
+          }
+        },
+        {
+          "client_id": "461705959329-ulsj55o169trm3p625kn7855u830nqhc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHS-SucDfxM3EeakMVptrUJ6hZwr5GmJU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "461705959329-ulsj55o169trm3p625kn7855u830nqhc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
