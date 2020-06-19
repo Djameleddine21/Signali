@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:signalini/screens/signale/widgets/choice_question.dart';
+import 'package:signalini/screens/signale/widgets/multiple_choice.dart';
+import 'package:signalini/screens/signale/widgets/open_question.dart';
 import 'package:signalini/utils/constants.dart';
 
 class SignalePage extends StatefulWidget {
@@ -9,7 +12,31 @@ class SignalePage extends StatefulWidget {
 }
 
 class _SignalePageState extends State<SignalePage> {
-  PageController pageController = PageController(initialPage: 0);
+  int currentIndex;
+  PageController pageController;
+
+  @override
+  void initState() {
+    super.initState();
+    currentIndex = 0;
+    pageController = PageController(initialPage: currentIndex);
+  }
+
+  Widget _buildItem(int index) {
+    switch (forms[index][typeKey]) {
+      case QuestionsType.open:
+        return OpenQuestionWidget(question: forms[index][questionKey]);
+      case QuestionsType.oneChoice:
+        return ChoiceQuestion(question: forms[index][questionKey]);
+      case QuestionsType.multipleChoice:
+        return MultipleChoice(
+          mainQuestion: forms[index][questionKey],
+          questions: forms[index][ansersKey],
+        );
+      default:
+        return Container();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,21 +67,25 @@ class _SignalePageState extends State<SignalePage> {
                   child: PageView(
                     controller: pageController,
                     physics: BouncingScrollPhysics(),
+                    onPageChanged: (value) {
+                      setState(() {
+                        currentIndex = value;
+                      });
+                    },
+                    //for each question in forms
                     children: <Widget>[
-                      Container(color: whiteColor.withOpacity(0.02)),
-                      Container(color: whiteColor.withOpacity(0.1)),
-                      Container(color: whiteColor.withOpacity(0.2)),
+                      for (var i = 0; i < forms.length; i++) _buildItem(i),
                     ],
                     scrollDirection: Axis.horizontal,
                   ),
                 ),
               ),
-              //top curseur
+              //top index
               Positioned(
                 top: height * 0.05,
                 left: width * 0.45,
                 child: Text(
-                  "1/8",
+                  "${currentIndex + 1}/${forms.length}",
                   style: whiteText.copyWith(fontSize: 25.0),
                   textAlign: TextAlign.center,
                 ),
@@ -63,23 +94,50 @@ class _SignalePageState extends State<SignalePage> {
               Positioned(
                 bottom: height * 0.05,
                 right: 20.0,
-                child: IconButton(
-                  icon: Icon(Icons.arrow_forward),
-                  color: Colors.white,
-                  iconSize: 30.0,
-                  onPressed: () {},
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    IconButton(
+                      icon: Icon(Icons.arrow_forward),
+                      color: Colors.white,
+                      iconSize: 30.0,
+                      onPressed: () {
+                        pageController.nextPage(
+                          duration: Duration(milliseconds: 400),
+                          curve: Curves.linear,
+                        );
+                      },
+                    ),
+                    Text("Suivant", style: whiteText),
+                  ],
                 ),
               ),
               //previous
               Positioned(
                 bottom: height * 0.05,
                 left: 20.0,
-                child: IconButton(
-                  icon: Icon(Icons.arrow_back),
-                  color: Colors.white,
-                  iconSize: 30.0,
-                  onPressed: () {},
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    IconButton(
+                      icon: Icon(Icons.arrow_back),
+                      color: Colors.white,
+                      iconSize: 30.0,
+                      onPressed: () {
+                        currentIndex = pageController.page.toInt();
+                        pageController.previousPage(
+                          duration: Duration(milliseconds: 400),
+                          curve: Curves.linear,
+                        );
+                      },
+                    ),
+                    Text("Précédent", style: whiteText),
+                  ],
                 ),
+              ),
+              //back button
+              Positioned(
+                child: BackButton(color: whiteColor),
               ),
             ],
           ),

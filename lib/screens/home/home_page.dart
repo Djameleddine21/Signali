@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:signalini/components/drawer.dart';
+import 'package:signalini/screens/signale/signale_page.dart';
 import 'package:signalini/utils/constants.dart';
 
 class HomePage extends StatefulWidget {
@@ -29,7 +30,7 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         key: _scaffoldKey,
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: ()=> Navigator.pushNamed(context, SignalePage.id),
           backgroundColor: greenDeepColor,
           child: Icon(Icons.add),
         ),
