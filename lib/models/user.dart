@@ -6,21 +6,22 @@ part 'user.g.dart';
 @JsonSerializable()
 
 class User {
-  String firstName;
-  String lastName;
-  String phoneNumber;
+  String nom;
+  String prenom;
+  String numTel;
   String numSecSoc;
-
+  bool isAdmin;
 
   ///default Constructor
   User({
-    @required this.firstName,
-    @required this.lastName,
+    @required this.nom,
+    @required this.prenom,
     @required this.numSecSoc,
-    @required this.phoneNumber,
-  })  : assert(firstName != null),
-        assert(lastName != null),
-        assert(phoneNumber != null),
+    @required this.numTel,
+    @required this.isAdmin
+  })  : assert(nom != null),
+        assert(prenom != null),
+        assert(numTel != null),
         assert(numSecSoc != null);
 
   ///create user instance form json

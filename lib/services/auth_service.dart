@@ -72,6 +72,21 @@ class AuthService {
     }
   }
 
+  ///get the id of the current user
+  Future<String> getUserID() async {
+    String id;
+    try {
+      FirebaseUser user = await _firebaseAuth.currentUser();
+      if (user != null) {
+        id = user.uid;
+      }
+      return id;
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+    return id;
+  }
+
   ///logout from google
   void logoutGoogle() async {
     await _googleSignIn.signOut();

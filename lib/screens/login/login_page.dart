@@ -106,7 +106,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     keyboardType: TextInputType.emailAddress,
                     validator: Validator.validateEmail,
-                    autovalidate: _firstTap ? true : false,
+                    autovalidate: _firstTap,
                   ),
                 ),
                 //password input
@@ -132,7 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     keyboardType: TextInputType.visiblePassword,
                     validator: Validator.validatePassword,
-                    autovalidate: _firstTap ? true : false,
+                    autovalidate: _firstTap,
                   ),
                 ),
                 //login button
