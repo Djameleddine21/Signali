@@ -6,8 +6,6 @@ class Validator {
   ///phone regular expression
   static RegExp _phoneRegExp = RegExp(r"^(?:\+?)(?:[0-9] ?){6,14}[0-9]$");
 
-  static RegExp _numberRegExp = RegExp(r'^[0-9]$');
-
   /// validate email input
   static String validateEmail(String email) {
     if (email.isEmpty) {

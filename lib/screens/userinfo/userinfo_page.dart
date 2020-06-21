@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:signalini/models/user.dart';
-import 'package:signalini/screens/home/home_page.dart';
 import 'package:signalini/services/user_service.dart';
 import 'package:signalini/utils/constants.dart';
 import 'package:signalini/validator/validator.dart';
