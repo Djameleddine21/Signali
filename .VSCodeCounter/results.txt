@@ -1,16 +1,16 @@
-Date : 2020-06-18 15:37:44
-Directory : d:\Code\Flutter\signalini
-Total : 30 files,  821 codes, 127 comments, 110 blanks, all 1058 lines
+Date : 2020-06-21 01:08:09
+Directory : d:\Code\Flutter\signali
+Total : 37 files,  1398 codes, 158 comments, 157 blanks, all 1713 lines
 
 Languages
 +------------+------------+------------+------------+------------+------------+
 | language   | files      | code       | comment    | blank      | total      |
 +------------+------------+------------+------------+------------+------------+
-| Dart       |         10 |        356 |         46 |         51 |        453 |
+| Dart       |         17 |        928 |         69 |         95 |      1,092 |
 | JSON       |          3 |        193 |          0 |          2 |        195 |
 | XML        |          7 |        118 |         35 |          8 |        161 |
-| Groovy     |          3 |         89 |          6 |         22 |        117 |
-| YAML       |          1 |         28 |         39 |         13 |         80 |
+| Groovy     |          3 |         93 |         14 |         25 |        132 |
+| YAML       |          1 |         29 |         39 |         13 |         81 |
 | Swift      |          1 |         14 |          0 |          2 |         16 |
 | Markdown   |          2 |         13 |          0 |          9 |         22 |
 | Properties |          2 |          9 |          1 |          2 |         12 |
@@ -18,72 +18,83 @@ Languages
 +------------+------------+------------+------------+------------+------------+
 
 Directories
-+-----------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
-| path                                                                                    | files      | code       | comment    | blank      | total      |
-+-----------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
-| .                                                                                       |         30 |        821 |        127 |        110 |      1,058 |
-| android                                                                                 |         11 |        203 |         40 |         30 |        273 |
-| android\app                                                                             |          7 |        158 |         36 |         18 |        212 |
-| android\app\src                                                                         |          5 |         57 |         33 |          6 |         96 |
-| android\app\src\debug                                                                   |          1 |          4 |          3 |          1 |          8 |
-| android\app\src\main                                                                    |          3 |         49 |         27 |          4 |         80 |
-| android\app\src\main\res                                                                |          2 |         13 |         16 |          3 |         32 |
-| android\app\src\main\res\drawable                                                       |          1 |          4 |          7 |          2 |         13 |
-| android\app\src\main\res\values                                                         |          1 |          9 |          9 |          1 |         19 |
-| android\app\src\profile                                                                 |          1 |          4 |          3 |          1 |          8 |
-| android\gradle                                                                          |          1 |          5 |          1 |          1 |          7 |
-| android\gradle\wrapper                                                                  |          1 |          5 |          1 |          1 |          7 |
-| ios                                                                                     |          7 |        224 |          2 |          9 |        235 |
-| ios\Runner                                                                              |          7 |        224 |          2 |          9 |        235 |
-| ios\Runner\Assets.xcassets                                                              |          3 |        148 |          0 |          4 |        152 |
-| ios\Runner\Assets.xcassets\AppIcon.appiconset                                           |          1 |        122 |          0 |          1 |        123 |
-| ios\Runner\Assets.xcassets\LaunchImage.imageset                                         |          2 |         26 |          0 |          3 |         29 |
-| ios\Runner\Base.lproj                                                                   |          2 |         61 |          2 |          2 |         65 |
-| lib                                                                                     |          9 |        356 |         22 |         44 |        422 |
-| lib\components                                                                          |          1 |         13 |          0 |          1 |         14 |
-| lib\models                                                                              |          2 |         36 |          7 |         14 |         57 |
-| lib\routes                                                                              |          1 |         18 |          0 |          2 |         20 |
-| lib\screens                                                                             |          3 |        240 |         10 |         18 |        268 |
-| lib\screens\home                                                                        |          1 |         74 |          3 |          7 |         84 |
-| lib\screens\login                                                                       |          1 |        152 |          7 |          7 |        166 |
-| lib\screens\signale                                                                     |          1 |         14 |          0 |          4 |         18 |
-| lib\utils                                                                               |          1 |         34 |          5 |          6 |         45 |
-| test                                                                                    |          1 |          0 |         24 |          7 |         31 |
-+-----------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
++---------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                  | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                     |         37 |      1,398 |        158 |        157 |      1,713 |
+| android                                                                               |         11 |        207 |         48 |         33 |        288 |
+| android\app                                                                           |          7 |        158 |         36 |         18 |        212 |
+| android\app\src                                                                       |          5 |         57 |         33 |          6 |         96 |
+| android\app\src\debug                                                                 |          1 |          4 |          3 |          1 |          8 |
+| android\app\src\main                                                                  |          3 |         49 |         27 |          4 |         80 |
+| android\app\src\main\res                                                              |          2 |         13 |         16 |          3 |         32 |
+| android\app\src\main\res\drawable                                                     |          1 |          4 |          7 |          2 |         13 |
+| android\app\src\main\res\values                                                       |          1 |          9 |          9 |          1 |         19 |
+| android\app\src\profile                                                               |          1 |          4 |          3 |          1 |          8 |
+| android\gradle                                                                        |          1 |          5 |          1 |          1 |          7 |
+| android\gradle\wrapper                                                                |          1 |          5 |          1 |          1 |          7 |
+| ios                                                                                   |          7 |        224 |          2 |          9 |        235 |
+| ios\Runner                                                                            |          7 |        224 |          2 |          9 |        235 |
+| ios\Runner\Assets.xcassets                                                            |          3 |        148 |          0 |          4 |        152 |
+| ios\Runner\Assets.xcassets\AppIcon.appiconset                                         |          1 |        122 |          0 |          1 |        123 |
+| ios\Runner\Assets.xcassets\LaunchImage.imageset                                       |          2 |         26 |          0 |          3 |         29 |
+| ios\Runner\Base.lproj                                                                 |          2 |         61 |          2 |          2 |         65 |
+| lib                                                                                   |         16 |        928 |         45 |         88 |      1,061 |
+| lib\components                                                                        |          2 |         51 |          2 |          4 |         57 |
+| lib\models                                                                            |          2 |         36 |          7 |         14 |         57 |
+| lib\routes                                                                            |          1 |         21 |          0 |          2 |         23 |
+| lib\screens                                                                           |          7 |        637 |         20 |         46 |        703 |
+| lib\screens\home                                                                      |          1 |         75 |          3 |          7 |         85 |
+| lib\screens\login                                                                     |          1 |        189 |         10 |          9 |        208 |
+| lib\screens\signale                                                                   |          4 |        281 |          7 |         26 |        314 |
+| lib\screens\signale\widgets                                                           |          3 |        146 |          0 |         19 |        165 |
+| lib\screens\userinfo                                                                  |          1 |         92 |          0 |          4 |         96 |
+| lib\services                                                                          |          1 |         69 |          7 |          9 |         85 |
+| lib\utils                                                                             |          1 |         79 |          7 |          7 |         93 |
+| lib\validator                                                                         |          1 |         20 |          2 |          3 |         25 |
+| test                                                                                  |          1 |          0 |         24 |          7 |         31 |
++---------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
 
 Files
-+-----------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
-| filename                                                                                | language   | code       | comment    | blank      | total      |
-+-----------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
-| d:\Code\Flutter\signalini\README.md                                                     | Markdown   |         10 |          0 |          7 |         17 |
-| d:\Code\Flutter\signalini\android\app\build.gradle                                      | Groovy     |         53 |          3 |         12 |         68 |
-| d:\Code\Flutter\signalini\android\app\google-services.json                              | JSON       |         48 |          0 |          0 |         48 |
-| d:\Code\Flutter\signalini\android\app\src\debug\AndroidManifest.xml                     | XML        |          4 |          3 |          1 |          8 |
-| d:\Code\Flutter\signalini\android\app\src\main\AndroidManifest.xml                      | XML        |         36 |         11 |          1 |         48 |
-| d:\Code\Flutter\signalini\android\app\src\main\res\drawable\launch_background.xml       | XML        |          4 |          7 |          2 |         13 |
-| d:\Code\Flutter\signalini\android\app\src\main\res\values\styles.xml                    | XML        |          9 |          9 |          1 |         19 |
-| d:\Code\Flutter\signalini\android\app\src\profile\AndroidManifest.xml                   | XML        |          4 |          3 |          1 |          8 |
-| d:\Code\Flutter\signalini\android\build.gradle                                          | Groovy     |         28 |          0 |          5 |         33 |
-| d:\Code\Flutter\signalini\android\gradle.properties                                     | Properties |          4 |          0 |          1 |          5 |
-| d:\Code\Flutter\signalini\android\gradle\wrapper\gradle-wrapper.properties              | Properties |          5 |          1 |          1 |          7 |
-| d:\Code\Flutter\signalini\android\settings.gradle                                       | Groovy     |          8 |          3 |          5 |         16 |
-| d:\Code\Flutter\signalini\ios\Runner\AppDelegate.swift                                  | Swift      |         14 |          0 |          2 |         16 |
-| d:\Code\Flutter\signalini\ios\Runner\Assets.xcassets\AppIcon.appiconset\Contents.json   | JSON       |        122 |          0 |          1 |        123 |
-| d:\Code\Flutter\signalini\ios\Runner\Assets.xcassets\LaunchImage.imageset\Contents.json | JSON       |         23 |          0 |          1 |         24 |
-| d:\Code\Flutter\signalini\ios\Runner\Assets.xcassets\LaunchImage.imageset\README.md     | Markdown   |          3 |          0 |          2 |          5 |
-| d:\Code\Flutter\signalini\ios\Runner\Base.lproj\LaunchScreen.storyboard                 | XML        |         36 |          1 |          1 |         38 |
-| d:\Code\Flutter\signalini\ios\Runner\Base.lproj\Main.storyboard                         | XML        |         25 |          1 |          1 |         27 |
-| d:\Code\Flutter\signalini\ios\Runner\Runner-Bridging-Header.h                           | C++        |          1 |          0 |          1 |          2 |
-| d:\Code\Flutter\signalini\lib\components\drawer.dart                                    | Dart       |         13 |          0 |          1 |         14 |
-| d:\Code\Flutter\signalini\lib\main.dart                                                 | Dart       |         15 |          0 |          3 |         18 |
-| d:\Code\Flutter\signalini\lib\models\user.dart                                          | Dart       |         21 |          3 |          9 |         33 |
-| d:\Code\Flutter\signalini\lib\models\user.g.dart                                        | Dart       |         15 |          4 |          5 |         24 |
-| d:\Code\Flutter\signalini\lib\routes\routes.dart                                        | Dart       |         18 |          0 |          2 |         20 |
-| d:\Code\Flutter\signalini\lib\screens\home\home_page.dart                               | Dart       |         74 |          3 |          7 |         84 |
-| d:\Code\Flutter\signalini\lib\screens\login\login_page.dart                             | Dart       |        152 |          7 |          7 |        166 |
-| d:\Code\Flutter\signalini\lib\screens\signale\signale_page.dart                         | Dart       |         14 |          0 |          4 |         18 |
-| d:\Code\Flutter\signalini\lib\utils\constants.dart                                      | Dart       |         34 |          5 |          6 |         45 |
-| d:\Code\Flutter\signalini\pubspec.yaml                                                  | YAML       |         28 |         39 |         13 |         80 |
-| d:\Code\Flutter\signalini\test\widget_test.dart                                         | Dart       |          0 |         24 |          7 |         31 |
-| Total                                                                                   |            |        821 |        127 |        110 |      1,058 |
-+-----------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
++---------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                              | language   | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| d:\Code\Flutter\signali\README.md                                                     | Markdown   |         10 |          0 |          7 |         17 |
+| d:\Code\Flutter\signali\android\app\build.gradle                                      | Groovy     |         53 |          3 |         12 |         68 |
+| d:\Code\Flutter\signali\android\app\google-services.json                              | JSON       |         48 |          0 |          0 |         48 |
+| d:\Code\Flutter\signali\android\app\src\debug\AndroidManifest.xml                     | XML        |          4 |          3 |          1 |          8 |
+| d:\Code\Flutter\signali\android\app\src\main\AndroidManifest.xml                      | XML        |         36 |         11 |          1 |         48 |
+| d:\Code\Flutter\signali\android\app\src\main\res\drawable\launch_background.xml       | XML        |          4 |          7 |          2 |         13 |
+| d:\Code\Flutter\signali\android\app\src\main\res\values\styles.xml                    | XML        |          9 |          9 |          1 |         19 |
+| d:\Code\Flutter\signali\android\app\src\profile\AndroidManifest.xml                   | XML        |          4 |          3 |          1 |          8 |
+| d:\Code\Flutter\signali\android\build.gradle                                          | Groovy     |         28 |          0 |          5 |         33 |
+| d:\Code\Flutter\signali\android\gradle.properties                                     | Properties |          4 |          0 |          1 |          5 |
+| d:\Code\Flutter\signali\android\gradle\wrapper\gradle-wrapper.properties              | Properties |          5 |          1 |          1 |          7 |
+| d:\Code\Flutter\signali\android\settings.gradle                                       | Groovy     |         12 |         11 |          8 |         31 |
+| d:\Code\Flutter\signali\ios\Runner\AppDelegate.swift                                  | Swift      |         14 |          0 |          2 |         16 |
+| d:\Code\Flutter\signali\ios\Runner\Assets.xcassets\AppIcon.appiconset\Contents.json   | JSON       |        122 |          0 |          1 |        123 |
+| d:\Code\Flutter\signali\ios\Runner\Assets.xcassets\LaunchImage.imageset\Contents.json | JSON       |         23 |          0 |          1 |         24 |
+| d:\Code\Flutter\signali\ios\Runner\Assets.xcassets\LaunchImage.imageset\README.md     | Markdown   |          3 |          0 |          2 |          5 |
+| d:\Code\Flutter\signali\ios\Runner\Base.lproj\LaunchScreen.storyboard                 | XML        |         36 |          1 |          1 |         38 |
+| d:\Code\Flutter\signali\ios\Runner\Base.lproj\Main.storyboard                         | XML        |         25 |          1 |          1 |         27 |
+| d:\Code\Flutter\signali\ios\Runner\Runner-Bridging-Header.h                           | C++        |          1 |          0 |          1 |          2 |
+| d:\Code\Flutter\signali\lib\components\alert_widget.dart                              | Dart       |         38 |          2 |          3 |         43 |
+| d:\Code\Flutter\signali\lib\components\drawer.dart                                    | Dart       |         13 |          0 |          1 |         14 |
+| d:\Code\Flutter\signali\lib\main.dart                                                 | Dart       |         15 |          0 |          3 |         18 |
+| d:\Code\Flutter\signali\lib\models\user.dart                                          | Dart       |         21 |          3 |          9 |         33 |
+| d:\Code\Flutter\signali\lib\models\user.g.dart                                        | Dart       |         15 |          4 |          5 |         24 |
+| d:\Code\Flutter\signali\lib\routes\routes.dart                                        | Dart       |         21 |          0 |          2 |         23 |
+| d:\Code\Flutter\signali\lib\screens\home\home_page.dart                               | Dart       |         75 |          3 |          7 |         85 |
+| d:\Code\Flutter\signali\lib\screens\login\login_page.dart                             | Dart       |        189 |         10 |          9 |        208 |
+| d:\Code\Flutter\signali\lib\screens\signale\signale_page.dart                         | Dart       |        135 |          7 |          7 |        149 |
+| d:\Code\Flutter\signali\lib\screens\signale\widgets\choice_question.dart              | Dart       |         65 |          0 |          7 |         72 |
+| d:\Code\Flutter\signali\lib\screens\signale\widgets\multiple_choice.dart              | Dart       |         47 |          0 |          7 |         54 |
+| d:\Code\Flutter\signali\lib\screens\signale\widgets\open_question.dart                | Dart       |         34 |          0 |          5 |         39 |
+| d:\Code\Flutter\signali\lib\screens\userinfo\userinfo_page.dart                       | Dart       |         92 |          0 |          4 |         96 |
+| d:\Code\Flutter\signali\lib\services\auth_service.dart                                | Dart       |         69 |          7 |          9 |         85 |
+| d:\Code\Flutter\signali\lib\utils\constants.dart                                      | Dart       |         79 |          7 |          7 |         93 |
+| d:\Code\Flutter\signali\lib\validator\validator.dart                                  | Dart       |         20 |          2 |          3 |         25 |
+| d:\Code\Flutter\signali\pubspec.yaml                                                  | YAML       |         29 |         39 |         13 |         81 |
+| d:\Code\Flutter\signali\test\widget_test.dart                                         | Dart       |          0 |         24 |          7 |         31 |
+| Total                                                                                 |            |      1,398 |        158 |        157 |      1,713 |
++---------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
