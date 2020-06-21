@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:signalini/screens/userinfo/userinfo_page.dart';
+import 'package:signalini/services/auth_service.dart';
 import 'package:signalini/utils/constants.dart';
 import 'package:signalini/validator/validator.dart';
 
@@ -12,11 +13,31 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   TextStyle selectedText = whiteText.copyWith(fontSize: 25.0, fontWeight: FontWeight.w600);
-  int selectedSign = 0;
-  bool showPassowrd = false;
-  bool _firstTap = false;
+  int selectedSign;
+  bool showPassowrd;
+  bool _firstTap;
   //form key
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  //input controllers
+  TextEditingController emailController;
+  TextEditingController passwordController;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedSign = 0;
+    showPassowrd = false;
+    _firstTap = false;
+    emailController = TextEditingController();
+    passwordController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   void _showPassord() {
     this.setState(() {
@@ -78,6 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                   padding: const EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 20.0),
                   child: TextFormField(
                     cursorColor: whiteColor,
+                    controller: emailController,
                     style: TextStyle(color: whiteColor),
                     decoration: inputDecoration.copyWith(
                       hintText: 'E-mail',
@@ -92,6 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                   child: TextFormField(
+                    controller: passwordController,
                     cursorColor: whiteColor,
                     obscureText: !showPassowrd,
                     style: TextStyle(color: whiteColor),
@@ -121,8 +144,10 @@ class _LoginPageState extends State<LoginPage> {
                         _firstTap = true;
                       });
                     }
-                    _formKey.currentState.validate();
-                    //Navigator.pushNamed(context, UserInfoPage.id);
+                    if (_formKey.currentState.validate()) {
+                      AuthService.instance
+                          .loginEmail(context, emailController.text, passwordController.text);
+                    }
                   },
                   child: Container(
                     margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
@@ -154,12 +179,13 @@ class _LoginPageState extends State<LoginPage> {
                 //Sign in with Google
                 InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, UserInfoPage.id);
+                    AuthService.instance.loginGoogle(context);
+                    // Navigator.pushNamed(context, UserInfoPage.id);
                   },
                   child: Container(
                     margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
                     height: 50.0,
-                    color: redColor,
+                    color: redColor.withOpacity(0.75),
                     alignment: Alignment.center,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
