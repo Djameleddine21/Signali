@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:signalini/screens/userinfo/userinfo_page.dart';
 import 'package:signalini/services/auth_service.dart';
 import 'package:signalini/utils/constants.dart';
 import 'package:signalini/validator/validator.dart';
@@ -80,8 +79,8 @@ class _LoginPageState extends State<LoginPage> {
                           selectedSign = 0;
                         });
                       },
-                      child:
-                          Text("SIGN IN", style: selectedSign == 0 ? selectedText : whiteText),
+                      child: Text("S'identifier",
+                          style: selectedSign == 0 ? selectedText : whiteText),
                     ),
                     InkWell(
                       onTap: () {
@@ -89,8 +88,8 @@ class _LoginPageState extends State<LoginPage> {
                           selectedSign = 1;
                         });
                       },
-                      child:
-                          Text("SIGN UP", style: selectedSign == 1 ? selectedText : whiteText),
+                      child: Text("S'inscrire",
+                          style: selectedSign == 1 ? selectedText : whiteText),
                     )
                   ],
                 ),
@@ -119,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
                     obscureText: !showPassowrd,
                     style: TextStyle(color: whiteColor),
                     decoration: inputDecoration.copyWith(
-                      hintText: 'Password',
+                      hintText: 'Mot de passe',
                       prefixIcon: Icon(Icons.vpn_key, color: whiteColor),
                       suffixIcon: showPassowrd
                           ? InkWell(
@@ -154,7 +153,10 @@ class _LoginPageState extends State<LoginPage> {
                     height: 50.0,
                     color: whiteColor.withOpacity(0.2),
                     alignment: Alignment.center,
-                    child: Text("Sign in", style: whiteText.copyWith(fontSize: 25.0)),
+                    child: Text(
+                      selectedSign == 0 ? "S'identifier" : "S'inscrire",
+                      style: whiteText.copyWith(fontSize: 25.0),
+                    ),
                   ),
                 ),
                 // OR
@@ -167,7 +169,7 @@ class _LoginPageState extends State<LoginPage> {
                       color: whiteColor.withOpacity(0.2),
                       margin: const EdgeInsets.only(right: 10.0),
                     ),
-                    Text("or", style: whiteText),
+                    Text("ou", style: whiteText),
                     Container(
                       height: 2.0,
                       width: _width * 0.2,
@@ -192,7 +194,10 @@ class _LoginPageState extends State<LoginPage> {
                       children: <Widget>[
                         Image.asset(iconPath + 'google.png', height: 40.0),
                         SizedBox(width: 10.0),
-                        Text("Sign in with Google", style: whiteText.copyWith(fontSize: 18.0)),
+                        Text(
+                          "Se connecter avec Google",
+                          style: whiteText.copyWith(fontSize: 18.0),
+                        ),
                       ],
                     ),
                   ),
