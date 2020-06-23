@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:signalini/screens/signale/signale_page.dart';
 import 'package:signalini/utils/constants.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -17,23 +20,15 @@ class CustomDrawer extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 20.0),
           children: <Widget>[
             //user info
-            ListTile(
-              leading: CircleAvatar(
-                maxRadius: 35.0,
-                backgroundColor: whiteColor,
-                child: Icon(Icons.person_outline, color: greenColor, size: 30.0),
+            Container(
+              alignment: Alignment.center,
+              padding: const EdgeInsets.symmetric(vertical: 15.0),
+              child: Text(
+                "Signali",
+                style: whiteText.copyWith(fontSize: 30.0, fontFamily: "Montserrat"),
               ),
-              title: Text(
-                "User name",
-                style: TextStyle(color: whiteColor, fontSize: 18.0),
-              ),
-              subtitle: Text(
-                "hd_sebbagh@esi.dz",
-                style: TextStyle(color: whiteColor, fontSize: 15.0),
-              ),
-              contentPadding: const EdgeInsets.all(0.0),
             ),
-            SizedBox(height: 40.0),
+            SizedBox(height: 30.0),
             //signaler un cas
             ListTile(
               leading: Icon(Icons.add_circle_outline, size: 28.0, color: whiteColor),
@@ -41,6 +36,9 @@ class CustomDrawer extends StatelessWidget {
                 "Signaler un cas",
                 style: whiteText.copyWith(fontSize: 18.0, fontWeight: FontWeight.w400),
               ),
+              onTap: () {
+                Navigator.pushNamed(context, SignalePage.id);
+              },
             ),
             //settings
             ListTile(
@@ -87,12 +85,13 @@ class CustomDrawer extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * 0.1,
                 ),
                 ListTile(
-              leading: Icon(Icons.exit_to_app, size: 28.0, color: whiteColor),
-              title: Text(
-                "Déconnecter",
-                style: whiteText.copyWith(fontSize: 18.0, fontWeight: FontWeight.w400),
-              ),
-            ),
+                  leading: Icon(Icons.exit_to_app, size: 28.0, color: whiteColor),
+                  title: Text(
+                    "Déconnecter",
+                    style: whiteText.copyWith(fontSize: 18.0, fontWeight: FontWeight.w400),
+                  ),
+                  onTap: () => exit(0),
+                ),
               ],
             ),
           ],

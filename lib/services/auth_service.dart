@@ -1,7 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:signalini/components/alert_widget.dart';
+import 'package:signalini/models/user.dart';
+import 'package:signalini/screens/home/home_page.dart';
+import 'package:signalini/screens/userinfo/userinfo_page.dart';
 
 /// class of authentification functions with singleton pattren
 class AuthService {
@@ -24,7 +28,7 @@ class AuthService {
           await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
       Navigator.pop(context);
       if (authResult.user != null) {
-        print("Succes");
+        Navigator.pushNamed(context, HomePage.id);
       }
     } catch (e) {
       Navigator.pop(context);
@@ -40,7 +44,7 @@ class AuthService {
           await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
       Navigator.pop(context);
       if (authResult.user != null) {
-        print("Succes");
+        Navigator.pushNamed(context, UserInfoPage.id);
       }
     } catch (e) {
       Navigator.pop(context);
@@ -64,7 +68,7 @@ class AuthService {
       assert(await authResult.user.getIdToken() != null);
       Navigator.pop(context);
       if (authResult.user != null) {
-        print("succes");
+        Navigator.pushNamed(context, UserInfoPage.id);
       }
     } catch (e) {
       Navigator.pop(context);
@@ -85,6 +89,24 @@ class AuthService {
       debugPrint(e.toString());
     }
     return id;
+  }
+
+  ///get Current user info
+  Future<User> getUserInfo() async {
+    User user;
+    try {
+      String id = await getUserID();
+      DocumentSnapshot document =
+          await Firestore.instance.collection("users").document(id).get();
+      if (document.data != null) {
+        print(id);
+        print(document.data.toString());
+        user = User.fromJson(document.data);
+      }
+      return user;
+    } catch (e) {
+      return user;
+    }
   }
 
   ///logout from google

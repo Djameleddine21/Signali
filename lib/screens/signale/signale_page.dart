@@ -2,18 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:signalini/screens/signale/widgets/choice_question.dart';
 import 'package:signalini/screens/signale/widgets/multiple_choice.dart';
 import 'package:signalini/screens/signale/widgets/open_question.dart';
+import 'package:signalini/services/form_service.dart';
 import 'package:signalini/utils/constants.dart';
 
 class SignalePage extends StatefulWidget {
   static const String id = '/signale';
-
   @override
   _SignalePageState createState() => _SignalePageState();
 }
 
-class _SignalePageState extends State<SignalePage> {
+class _SignalePageState extends State<SignalePage> with SingleTickerProviderStateMixin {
   int currentIndex;
   PageController pageController;
+  FormService formService = FormService.instance;
 
   @override
   void initState() {
@@ -22,16 +23,32 @@ class _SignalePageState extends State<SignalePage> {
     pageController = PageController(initialPage: currentIndex);
   }
 
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
+
   Widget _buildItem(int index) {
     switch (forms[index][typeKey]) {
       case QuestionsType.open:
-        return OpenQuestionWidget(question: forms[index][questionKey]);
+        return OpenQuestionWidget(
+          question: forms[index][questionKey],
+          index: currentIndex,
+          formService: formService,
+        );
       case QuestionsType.oneChoice:
-        return ChoiceQuestion(question: forms[index][questionKey]);
+        return ChoiceQuestion(
+          question: forms[index][questionKey],
+          index: currentIndex,
+          formService: formService,
+        );
       case QuestionsType.multipleChoice:
         return MultipleChoice(
           mainQuestion: forms[index][questionKey],
           questions: forms[index][ansersKey],
+          index: currentIndex,
+          formService: formService,
         );
       default:
         return Container();
@@ -91,50 +108,57 @@ class _SignalePageState extends State<SignalePage> {
                 ),
               ),
               //next
-              Positioned(
-                bottom: height * 0.05,
-                right: 20.0,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: <Widget>[
-                    IconButton(
-                      icon: Icon(Icons.arrow_forward),
-                      color: Colors.white,
-                      iconSize: 30.0,
-                      onPressed: () {
-                        pageController.nextPage(
-                          duration: Duration(milliseconds: 400),
-                          curve: Curves.linear,
-                        );
-                      },
-                    ),
-                    Text("Suivant", style: whiteText),
-                  ],
-                ),
-              ),
-              //previous
-              Positioned(
-                bottom: height * 0.05,
-                left: 20.0,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    IconButton(
-                      icon: Icon(Icons.arrow_back),
-                      color: Colors.white,
-                      iconSize: 30.0,
-                      onPressed: () {
-                        currentIndex = pageController.page.toInt();
-                        pageController.previousPage(
-                          duration: Duration(milliseconds: 400),
-                          curve: Curves.linear,
-                        );
-                      },
-                    ),
-                    Text("Précédent", style: whiteText),
-                  ],
-                ),
-              ),
+              currentIndex != forms.length - 1
+                  ? Positioned(
+                      bottom: height * 0.05,
+                      right: 20.0,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: <Widget>[
+                          IconButton(
+                            icon: Icon(Icons.arrow_forward),
+                            color: Colors.white,
+                            iconSize: 30.0,
+                            onPressed: () {
+                              if (formService.reponses[currentIndex] != null)
+                                pageController.nextPage(
+                                  duration: Duration(milliseconds: 450),
+                                  curve: Curves.linear,
+                                );
+                            },
+                          ),
+                          Text("Suivant", style: whiteText),
+                        ],
+                      ),
+                    )
+                  : Container(),
+              //Submit Button
+              currentIndex == forms.length - 1
+                  ? Align(
+                      alignment: Alignment.bottomCenter,
+                      child: InkWell(
+                        onTap: () {
+                          if (formService.reponses[forms.length - 1] != null) {
+                            formService.submitAnswer(context);
+                          }
+                        },
+                        child: Container(
+                          height: 50.0,
+                          width: 200.0,
+                          margin: const EdgeInsets.only(bottom: 30.0),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5.0),
+                            color: whiteColor,
+                          ),
+                          alignment: Alignment.center,
+                          child: Text(
+                            "Soumettre",
+                            style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w500),
+                          ),
+                        ),
+                      ),
+                    )
+                  : Container(),
               //back button
               Positioned(
                 child: BackButton(color: whiteColor),

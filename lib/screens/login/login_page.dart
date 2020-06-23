@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:signalini/screens/home/home_page.dart';
 import 'package:signalini/services/auth_service.dart';
 import 'package:signalini/utils/constants.dart';
 import 'package:signalini/validator/validator.dart';
@@ -51,6 +52,7 @@ class _LoginPageState extends State<LoginPage> {
     return SafeArea(
       child: Scaffold(
         body: Container(
+          //gradient background
           decoration: BoxDecoration(
             gradient: LinearGradient(
                 colors: <Color>[greenColor, greenDeepColor],
@@ -144,8 +146,13 @@ class _LoginPageState extends State<LoginPage> {
                       });
                     }
                     if (_formKey.currentState.validate()) {
-                      AuthService.instance
-                          .loginEmail(context, emailController.text, passwordController.text);
+                      if (selectedSign == 0) {
+                        AuthService.instance.loginEmail(
+                            context, emailController.text, passwordController.text);
+                      } else if (selectedSign == 1) {
+                        AuthService.instance.registreEmail(
+                            context, emailController.text, passwordController.text);
+                      }
                     }
                   },
                   child: Container(
